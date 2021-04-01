@@ -23,7 +23,12 @@
       40.74852988705863, -73.98567513104624,
       48.85273888362916, 2.3505784982127973,
       41.395352302106296, 2.1619238554827023,
-      -15.79816638839422, -47.875378470260216
+      -15.79816638839422, -47.875378470260216,
+      51.50464689975114, -0.086478544150304,
+      25.19708048826783, 55.27429056667928,
+      27.175230683741503, 78.0421743839178,
+      21.42257277869614, 39.8262399983885,
+      43.72306052978343, 10.396618455561677
     ];
     var plekken = [
       "Eifeltoren",
@@ -62,9 +67,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[0], coords[1]], {
-    //   icon: Eifeltoren
-    // }).addTo(mymap);
+    L.marker([coords[0], coords[1]], {
+      icon: Eifeltoren
+    }).addTo(mymap);
 
     var SydneyOperaHouse = L.icon({
       iconUrl: 'img/sydney_opera_house.png',
@@ -77,9 +82,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[2], coords[3]], {
-    //   icon: SydneyOperaHouse
-    // }).addTo(mymap);
+    L.marker([coords[2], coords[3]], {
+      icon: SydneyOperaHouse
+    }).addTo(mymap);
 
     var EmpireStateBuilding = L.icon({
       iconUrl: 'img/empire_state_building.png',
@@ -92,9 +97,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[4], coords[5]], {
-    //   icon: EmpireStateBuilding
-    // }).addTo(mymap);
+    L.marker([coords[4], coords[5]], {
+      icon: EmpireStateBuilding
+    }).addTo(mymap);
 
     var NotreDame = L.icon({
       iconUrl: 'img/notre_dame.png',
@@ -107,9 +112,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[6], coords[7]], {
-    //   icon: NotreDame
-    // }).addTo(mymap);
+    L.marker([coords[6], coords[7]], {
+      icon: NotreDame
+    }).addTo(mymap);
 
     var CasaDeMilia = L.icon({
       iconUrl: 'img/casa_de_milia.png',
@@ -122,9 +127,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[8], coords[9]], {
-    //   icon: CasaDeMilia
-    // }).addTo(mymap);
+    L.marker([coords[8], coords[9]], {
+      icon: CasaDeMilia
+    }).addTo(mymap);
 
     var CasaDeMilia = L.icon({
       iconUrl: 'img/casa_de_milia.png',
@@ -137,9 +142,9 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[8], coords[9]], {
-    //   icon: CasaDeMilia
-    // }).addTo(mymap);
+    L.marker([coords[8], coords[9]], {
+      icon: CasaDeMilia
+    }).addTo(mymap);
 
     var BrasiliaCathedral = L.icon({
       iconUrl: 'img/cathedral_of_brasilia.png',
@@ -152,20 +157,85 @@
       popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
     });
 
-    // L.marker([coords[10], coords[11]], {
-    //   icon: BrasiliaCathedral
-    // }).addTo(mymap);
+    L.marker([coords[10], coords[11]], {
+      icon: BrasiliaCathedral
+    }).addTo(mymap);
 
-    for (let i = 0; i < plekken.length; i++) {
-      for (let k = 0; k < coords.length; k++) {
-        L.marker([coords[k], coords[k + 1]], {
-          icon: plekken[i]
-        }).addTo(mymap);
-        console.log(coords[k], coords[k + 1]);
-        console.log("----------------------");
-        console.log(plekken[i]);
-      }
-    }
+    var TheShard = L.icon({
+      iconUrl: 'img/the_shard.png',
+      shadowUrl: 'img/the_shard_shadow.png',
+
+      iconSize: [38, 95], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      shadowAnchor: [4, 62], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.marker([coords[12], coords[13]], {
+      icon: TheShard
+    }).addTo(mymap);
+
+    var BurjKhalifa = L.icon({
+      iconUrl: 'img/burj_khalifa.png',
+      shadowUrl: 'img/burj_khalifa_shadow.png',
+
+      iconSize: [58, 95], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      shadowAnchor: [16, 62], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.marker([coords[14], coords[15]], {
+      icon: BurjKhalifa
+    }).addTo(mymap);
+
+    var TajMahal = L.icon({
+      iconUrl: 'img/taj_mahal.png',
+      shadowUrl: 'img/taj_mahal_shadow.png',
+
+      iconSize: [38, 48], // size of the icon
+      shadowSize: [38, 28], // size of the shadow
+      iconAnchor: [38, 48], // point of the icon which will correspond to marker's location
+      shadowAnchor: [38, 47], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.marker([coords[16], coords[17]], {
+      icon: TajMahal
+    }).addTo(mymap);
+
+    var TheKaaba = L.icon({
+      iconUrl: 'img/the_kaaba.png',
+      shadowUrl: 'img/the_kaaba_shadow.png',
+
+      iconSize: [38, 48], // size of the icon
+      shadowSize: [38, 28], // size of the shadow
+      iconAnchor: [38, 48], // point of the icon which will correspond to marker's location
+      shadowAnchor: [38, 47], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.marker([coords[18], coords[19]], {
+      icon: TheKaaba
+    }).addTo(mymap);
+
+    var TowerPisa = L.icon({
+      iconUrl: 'img/tower_of_pisa.png',
+      shadowUrl: 'img/tower_of_pisa_shadow.png',
+
+      iconSize: [38, 95], // size of the icon
+      shadowSize: [50, 64], // size of the shadow
+      iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+      shadowAnchor: [4, 62], // the same for the shadow
+      popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+    });
+
+    L.marker([coords[20], coords[21]], {
+      icon: TowerPisa
+    }).addTo(mymap);
+
     var popup = L.popup();
 
 
