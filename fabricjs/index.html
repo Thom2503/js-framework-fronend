@@ -1,10 +1,56 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="js/fabric.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <canvas id="c" width="1000" height="300"></canvas>
+  <button type="button" onclick="createTable('twoPerson')" name="addTable">2 persoons tafel</button>
+  <button type="button" onclick="functionName()" name="addTable">4 persoons tafel</button>
+  <script type="text/javascript">
+    (function() {
+      var canvas = this.__canvas = new fabric.Canvas('c');
+
+      var rect = new fabric.Rect({
+        left: 150,
+        top: 200,
+        originX: 'left',
+        originY: 'top',
+        width: 75,
+        height: 75,
+        fill: 'black',
+        transparentCorners: false
+      });
+
+      // canvas.add(rect).setActiveObject(rect);
+
+      var rect1 = new fabric.Rect({
+        left: 150,
+        top: 200,
+        originX: 'left',
+        originY: 'top',
+        width: 100,
+        height: 90,
+        fill: 'black',
+        transparentCorners: false
+      });
+
+      function createTable(typeTable) {
+        if (typeTable == "twoPerson") {
+          canvas.add(rect1).setActiveObject(rect1);
+        } else if (typeTable == 'fourPerson') {
+          canvas.add(rect).setActiveObject(rect);
+        }
+      };
+      function functionName() {
+        console.log("test");
+      }
+    })();
+  </script>
+</body>
+
 </html>
