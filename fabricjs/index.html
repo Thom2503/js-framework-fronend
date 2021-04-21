@@ -7,7 +7,6 @@
   <script src="js/fabric.min.js" charset="utf-8"></script>
   <style media="screen">
     body {
-      overflow: hidden;
       margin: 0 !important;
       padding: 0 !important;
     }
@@ -22,23 +21,37 @@
 </head>
 
 <body>
+  <p>Toevoegen</p>
   <button type="button" onclick="createTable('twoPerson')" name="addTable">2 persoons tafel</button>
   <button type="button" onclick="createTable('fourPerson')" name="addTable">4 persoons tafel</button>
-  <canvas id="c" width="1000" height="600"></canvas>
+  <button type="button" onclick="removeTable()" name="removeSelection">Verwijder tafel</button>
+  <canvas id="c" width="1400" height="700"></canvas>
   <script type="text/javascript">
       var canvas = new fabric.Canvas('c');
+      canvas.setBackgroundImage('img/floorplan.png', canvas.renderAll.bind(canvas));
 
 
       function createTable(typeTable) {
         if (typeTable == "twoPerson") {
           fabric.Image.fromURL('img/smallTable.png', function(table) {
-            canvas.add(table);
+            canvas.add(table).scale(.8);
+            canvas.item(table).hasControls;
+            canvas.item(table).hasBorders = false;
           });
         }
         if (typeTable == 'fourPerson') {
           fabric.Image.fromURL('img/fourTable.png', function(table) {
             canvas.add(table);
+            canvas.item(table).hasControls = canvas.item(table).hasBorders = false;
           });
+        }
+      };
+
+      function removeTable() {
+        var activeObjects = canvas.getActiveObjects();
+        canvas.discardActiveObject()
+        if (activeObjects.length) {
+          canvas.remove.apply(canvas, activeObjects);
         }
       };
   </script>
