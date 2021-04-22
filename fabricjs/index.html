@@ -21,20 +21,28 @@
 </head>
 
 <body>
-  <p>Toevoegen</p>
+  <h1>Hoge waarden Restaurant</h1>
   <button type="button" onclick="createTable('twoPerson')" name="addTable">2 persoons tafel</button>
   <button type="button" onclick="createTable('fourPerson')" name="addTable">4 persoons tafel</button>
   <button type="button" onclick="removeTable()" name="removeSelection">Verwijder tafel</button>
+  <button type="button" onclick="reserveTable()" name="reserveSelection">Reserveer tafel</button>
   <canvas id="c" width="1400" height="700"></canvas>
   <script type="text/javascript">
       var canvas = new fabric.Canvas('c');
+
       canvas.setBackgroundImage('img/floorplan.png', canvas.renderAll.bind(canvas));
+
+      let filters = [
+          new fabric.Image.filters.Grayscale(),
+          new fabric.Image.filters.Sepia2(),
+          new fabric.Image.filters.Invert(),
+      ];
 
 
       function createTable(typeTable) {
         if (typeTable == "twoPerson") {
           fabric.Image.fromURL('img/smallTable.png', function(table) {
-            canvas.add(table).scale(.8);
+            canvas.add(table);
             canvas.item(table).hasControls;
             canvas.item(table).hasBorders = false;
           });
@@ -44,6 +52,16 @@
             canvas.add(table);
             canvas.item(table).hasControls = canvas.item(table).hasBorders = false;
           });
+        }
+      };
+
+
+      //trying filters wont work
+      function reserveTable() {
+        var activeObjects = canvas.getActiveObjects();
+        if (activeObjects.length) {
+          activeObjects.filters = [new fabric.Image.filters.Invert()];
+          canvas.add(activeObjects);
         }
       };
 
