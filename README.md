@@ -2,7 +2,7 @@
 School assignment
 This is a school assignment to learn about libraries and frameworks
 ## The first library:
-### chartj:
+### chartjs:
 [Link to file](https://github.com/Thom2503/js-framework-fronend/blob/main/chartjs/)
 ## The second library:
 ### leafletJS:
