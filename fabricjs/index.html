@@ -25,8 +25,10 @@
   <button type="button" onclick="createTable('twoPerson')" name="addTable">2 persoons tafel</button>
   <button type="button" onclick="createTable('fourPerson')" name="addTable">4 persoons tafel</button>
   <button type="button" onclick="removeTable()" name="removeSelection">Verwijder tafel</button>
-  <button type="button" id="grayscale" name="reserveSelection">Reserveer kleine tafel</button>
-  <button type="button" onclick="reserveBigTable()" id="grayscale" name="reserveSelection">Reserveer 4 persoons tafel</button>
+  <button type="button" id="reserveSmallTable" name="reserveSelection">Reserveer kleine tafel</button>
+  <button type="button" id="reserveBigTable" name="reserveSelection">Reserveer 4 persoons tafel</button>
+  <button type="button" id="openSmallTable" name="reserveSelection">Open kleine tafel</button>
+  <button type="button" id="openBigTable" name="reserveSelection">Open 4 persoons tafel</button>
   <canvas id="c" width="1400" height="700"></canvas>
   <script type="text/javascript">
       var canvas = new fabric.Canvas('c');
@@ -40,27 +42,42 @@
         if (typeTable == "twoPerson") {
           fabric.Image.fromURL('img/smallTable.png', function(table) {
             canvas.add(table);
-            canvas.item(table).hasControls;
-            canvas.item(table).hasBorders = false;
           });
         }
         if (typeTable == 'fourPerson') {
           fabric.Image.fromURL('img/fourTable.png', function(table) {
             canvas.add(table);
-            canvas.item(table).hasControls = canvas.item(table).hasBorders = false;
           });
         }
       };
-      var activeObject;
-      canvas.on('object:selected', function(e) {
-        activeObject = e.target;
-      });
-      var greyscale = document.getElementById('grayscale');
-      greyscale.addEventListener('click', function() {
-          var filter = new fabric.Image.filters.Grayscale();
-          activeObject.filters.push(filter);
-          activeObject.applyFilters(canvas.renderAll.bind(canvas));
-      }, false);
+
+      document.getElementById('reserveSmallTable').onclick = function () {
+        var activeObject = canvas.getActiveObject();
+        activeObject.setSrc('img/smallTableReserved.png', function(img) {
+          canvas.add(img);
+        });
+      };
+
+      document.getElementById('reserveBigTable').onclick = function () {
+        var activeObject = canvas.getActiveObject();
+        activeObject.setSrc('img/fourTableReserved.png', function(img) {
+          canvas.add(img);
+        });
+      };
+
+      document.getElementById('openSmallTable').onclick = function () {
+        var activeObject = canvas.getActiveObject();
+        activeObject.setSrc('img/smallTable.png', function(img) {
+          canvas.add(img);
+        });
+      };
+
+      document.getElementById('openBigTable').onclick = function () {
+        var activeObject = canvas.getActiveObject();
+        activeObject.setSrc('img/fourTable.png', function(img) {
+          canvas.add(img);
+        });
+      };
 
       function removeTable() {
         var activeObjects = canvas.getActiveObjects();
