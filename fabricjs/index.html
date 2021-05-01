@@ -22,12 +22,14 @@
 
 <body>
   <h1>Hoge waarden Restaurant</h1>
+  <em>Als je een tafel wilt reserveren selecteer de tafel en klik dan op de reserveerknop voor de tafel.<br>
+  Als de gasten weg zijn kan je de tafel weer open maken. <br> </em>
   <button type="button" onclick="createTable('twoPerson')" name="addTable">2 persoons tafel</button>
   <button type="button" onclick="createTable('fourPerson')" name="addTable">4 persoons tafel</button>
   <button type="button" onclick="removeTable()" name="removeSelection">Verwijder tafel</button>
-  <button type="button" id="reserveSmallTable" name="reserveSelection">Reserveer kleine tafel</button>
+  <button type="button" id="reserveSmallTable" name="reserveSelection">Reserveer 2 persoons tafel</button>
   <button type="button" id="reserveBigTable" name="reserveSelection">Reserveer 4 persoons tafel</button>
-  <button type="button" id="openSmallTable" name="reserveSelection">Open kleine tafel</button>
+  <button type="button" id="openSmallTable" name="reserveSelection">Open 2 persoons tafel</button>
   <button type="button" id="openBigTable" name="reserveSelection">Open 4 persoons tafel</button>
   <canvas id="c" width="1400" height="700"></canvas>
   <script type="text/javascript">
